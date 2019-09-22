@@ -24,7 +24,7 @@ class AppointmentRepository(private val appointmentDao: AppointmentDao) {
     }
 
     @WorkerThread
-    suspend fun updateMedicalItem(appt: Appointment) {
+    suspend fun updateAppointment(appt: Appointment) {
         appointmentDao.update(appt)
     }
 }

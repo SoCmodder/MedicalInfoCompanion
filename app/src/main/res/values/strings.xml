@@ -3,4 +3,8 @@
     <string name="add_med_item">Add Medical Item</string>
     <string name="view_med_items">View Medical Items</string>
     <string name="add_doctor">Add Doctor</string>
+    <string name="doctor_name">doctor name</string>
+    <string name="doctor_address">doctor address</string>
+    <string name="save_doctor">Save Doctor</string>
+    <string name="save_document">Save Document</string>
 </resources>

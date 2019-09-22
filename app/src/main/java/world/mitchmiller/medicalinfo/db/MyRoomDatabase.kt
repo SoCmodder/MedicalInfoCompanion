@@ -9,6 +9,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import world.mitchmiller.medicalinfo.db.dao.AppointmentDao
+import world.mitchmiller.medicalinfo.db.dao.DoctorDao
+import world.mitchmiller.medicalinfo.db.dao.DocumentDao
 import world.mitchmiller.medicalinfo.db.model.Appointment
 import world.mitchmiller.medicalinfo.db.model.Doctor
 import world.mitchmiller.medicalinfo.db.model.Document
@@ -17,6 +19,8 @@ import world.mitchmiller.medicalinfo.db.model.Document
 abstract class MyRoomDatabase : RoomDatabase() {
 
     abstract fun medItemDao(): AppointmentDao
+    abstract fun doctorDao(): DoctorDao
+    abstract fun documentDao(): DocumentDao
 
     companion object {
         @Volatile
