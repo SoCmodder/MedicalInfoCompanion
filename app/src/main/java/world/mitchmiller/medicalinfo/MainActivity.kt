@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         viewModel = ViewModelProviders.of(this).get(AppointmentViewModel::class.java)
-        viewModel.allMedicalItems.observe(this, Observer { medItems ->
+        viewModel.allAppointments.observe(this, Observer { appts ->
 
         })
     }

@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"/>
 
     <Button
-        android:id="@+id/view_med_items"
+        android:id="@+id/view_appointments_button"
         android:layout_below="@+id/add_doctor_button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"

@@ -49,6 +49,11 @@ dependencies {
     // ViewModel Kotlin support
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0"
 
+    // CameraKit
+    implementation 'com.camerakit:camerakit:1.0.0-beta3.11'
+    implementation 'com.camerakit:jpegkit:0.1.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.0'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

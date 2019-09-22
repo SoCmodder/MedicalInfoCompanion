@@ -4,9 +4,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import world.mitchmiller.medicalinfo.R
 
-class ViewAppointmentActivity : AppCompatActivity() {
+class ScanDocumentActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_view_appointment)
+        setContentView(R.layout.activity_scan_document)
     }
 }

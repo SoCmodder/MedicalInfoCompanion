@@ -17,6 +17,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.NewDoctorActivity" />
+        <activity android:name=".view.activity.ViewDoctorActivity" />
+        <activity android:name=".view.activity.ViewDocumentActivity" />
+        <activity android:name=".view.activity.DocumentListActivity" />
+        <activity android:name=".view.activity.NewAppointmentActivity" />
+        <activity android:name=".view.activity.NewDocumentActivity" />
+        <activity android:name=".view.activity.ScanDocumentActivity" />
+        <activity android:name=".view.activity.ViewAppointmentActivity" />
     </application>
 
 </manifest>
