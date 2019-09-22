@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Medical Info</string>
+    <string name="add_med_item">Add Medical Item</string>
+    <string name="view_med_items">View Medical Items</string>
+    <string name="add_doctor">Add Doctor</string>
 </resources>

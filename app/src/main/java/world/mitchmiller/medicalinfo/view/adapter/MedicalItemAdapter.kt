@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import world.mitchmiller.medicalinfo.R
-import world.mitchmiller.medicalinfo.db.model.MedicalItem
+import world.mitchmiller.medicalinfo.db.model.Appointment
 
 class MedicalItemAdapter internal constructor(context: Context, itemClickListener: OnItemClickListener) : RecyclerView.Adapter<MedicalItemAdapter.MedItemViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var medicalItems = emptyList<MedicalItem>() // Cached copy of medical items
+    private var medicalItems = emptyList<Appointment>() // Cached copy of medical items
     private val listener: OnItemClickListener = itemClickListener
 
     companion object {
@@ -24,7 +24,7 @@ class MedicalItemAdapter internal constructor(context: Context, itemClickListene
     }
 
     public interface OnItemClickListener {
-        fun onItemClick(medicalItem: MedicalItem)
+        fun onItemClick(appointment: Appointment)
     }
 
     override fun getItemCount() = medicalItems.size
@@ -34,8 +34,8 @@ class MedicalItemAdapter internal constructor(context: Context, itemClickListene
         holder.medItemView.text = current.name.capitalize()
     }
 
-    internal fun setMedItems(medicalItems: List<MedicalItem>) {
-        this.medicalItems = medicalItems
+    internal fun setMedItems(appointments: List<Appointment>) {
+        this.medicalItems = appointments
         notifyDataSetChanged()
     }
 

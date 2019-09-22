@@ -8,23 +8,26 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import world.mitchmiller.medicalinfo.db.model.MedicalItem
+import world.mitchmiller.medicalinfo.db.dao.AppointmentDao
+import world.mitchmiller.medicalinfo.db.model.Appointment
+import world.mitchmiller.medicalinfo.db.model.Doctor
+import world.mitchmiller.medicalinfo.db.model.Document
 
-@Database(entities = [MedicalItem::class], version = 1)
-abstract class MedicalInfoRoomDatabase : RoomDatabase() {
+@Database(entities = [Appointment::class, Doctor::class, Document::class], version = 1)
+abstract class MyRoomDatabase : RoomDatabase() {
 
-    abstract fun medItemDao(): MedItemDao
+    abstract fun medItemDao(): AppointmentDao
 
     companion object {
         @Volatile
-        private var INSTANCE: MedicalInfoRoomDatabase? = null
+        private var INSTANCE: MyRoomDatabase? = null
 
-        fun getDatabase(context: Context, scope: CoroutineScope): MedicalInfoRoomDatabase {
+        fun getDatabase(context: Context, scope: CoroutineScope): MyRoomDatabase {
             return INSTANCE ?: synchronized(this) {
                 // Create database here
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    MedicalInfoRoomDatabase::class.java,
+                    MyRoomDatabase::class.java,
                     "Medical_Info_APP_database"
                 )
                     .addCallback(MedInfoDatabaseCallback(scope))

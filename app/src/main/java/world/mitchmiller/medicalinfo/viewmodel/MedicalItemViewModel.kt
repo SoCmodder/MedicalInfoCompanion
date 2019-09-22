@@ -6,33 +6,33 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import world.mitchmiller.medicalinfo.db.MedicalInfoRepository
-import world.mitchmiller.medicalinfo.db.MedicalInfoRoomDatabase
-import world.mitchmiller.medicalinfo.db.model.MedicalItem
+import world.mitchmiller.medicalinfo.db.repo.AppointmentRepository
+import world.mitchmiller.medicalinfo.db.MyRoomDatabase
+import world.mitchmiller.medicalinfo.db.model.Appointment
 
 class MedicalItemViewModel(application: Application) : AndroidViewModel(application) {
-    private val repository: MedicalInfoRepository
-    val allMedicalItems: LiveData<List<MedicalItem>>
+    private val repository: AppointmentRepository
+    val allMedicalItems: LiveData<List<Appointment>>
 
     init {
-        val medItemDao = MedicalInfoRoomDatabase.getDatabase(application, viewModelScope).medItemDao()
-        repository = MedicalInfoRepository(medItemDao)
-        allMedicalItems = repository.allMedicalItems
+        val medItemDao = MyRoomDatabase.getDatabase(application, viewModelScope).medItemDao()
+        repository = AppointmentRepository(medItemDao)
+        allMedicalItems = repository.allAppointments
     }
 
-    fun insert(medicalItem: MedicalItem) = viewModelScope.launch(Dispatchers.IO) {
-        repository.insert(medicalItem)
+    fun insert(appointment: Appointment) = viewModelScope.launch(Dispatchers.IO) {
+        repository.insert(appointment)
     }
 
-    fun delete(medicalItem: MedicalItem) {
-        repository.delete(medicalItem)
+    fun delete(appointment: Appointment) {
+        repository.delete(appointment)
     }
 
     fun deleteAll() {
         repository.deleteAll()
     }
 
-    fun updateMedicalItem(medicalItem: MedicalItem) = viewModelScope.launch(Dispatchers.IO){
-        repository.updateMedicalItem(medicalItem)
+    fun updateMedicalItem(appointment: Appointment) = viewModelScope.launch(Dispatchers.IO){
+        repository.updateMedicalItem(appointment)
     }
 }
