@@ -1,35 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/name"
-        android:hint="@string/doctor_name"
-        android:layout_marginTop="8dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/name_layout"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/doctor_address"
-        android:hint="@string/doctor_address"
-        android:layout_below="@+id/name"
-        android:layout_marginTop="8dp"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/doctor_name" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/address_layout"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/doctor_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/doctor_address" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phone_layout"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/doctor_address" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/save_button"
-        android:layout_below="@+id/doctor_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phone_layout"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:text="@string/save_doctor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:text="@string/save_doctor" />
 
 </RelativeLayout>

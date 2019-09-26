@@ -2,9 +2,20 @@
     <string name="app_name">Medical Info</string>
     <string name="add_med_item">Add Medical Item</string>
     <string name="view_med_items">View Medical Items</string>
-    <string name="add_doctor">Add Doctor</string>
+    <string name="add_doctor">New Doctor</string>
     <string name="doctor_name">doctor name</string>
     <string name="doctor_address">doctor address</string>
     <string name="save_doctor">Save Doctor</string>
     <string name="save_document">Save Document</string>
+    <string name="document_notes">notes</string>
+    <string name="document_name">document_name</string>
+    <string name="save_appt">Save Appointment</string>
+    <string name="appointment_name">name</string>
+    <string name="date">DATE</string>
+    <string name="time">TIME</string>
+    <string name="view_appointments">View Appointments</string>
+    <string name="add_document">Add Document</string>
+    <string name="view_documents">View Documents</string>
+    <string name="add_appointment">New Appointment</string>
+    <string name="view_doctors">View Doctors</string>
 </resources>

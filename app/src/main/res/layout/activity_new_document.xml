@@ -1,41 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/document_name"
-        android:layout_marginTop="16dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/name_layout"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/line1"
-        android:layout_below="@+id/document_name"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/document_name" />
 
-    <EditText
-        android:id="@+id/line2"
-        android:layout_below="@+id/line1"
-        android:layout_marginTop="16dp"
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/document_notes_layout"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/document_notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/document_notes" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/save_button"
-        android:layout_below="@+id/line2"
-        android:layout_centerHorizontal="true"
-        android:text="@string/save_document"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/document_notes_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="@string/save_document" />
 
 </RelativeLayout>

@@ -1,27 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/add_doctor_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:text="@string/add_doctor"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/add_document_button"
+        android:layout_marginTop="20dp"
+        android:text="@string/add_document"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/add_appointment_button"
+        android:layout_marginTop="20dp"
+        android:text="@string/add_appointment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:background="@android:color/black"
+        android:layout_marginTop="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+
+    <Button
+        android:id="@+id/view_doctors_button"
+        android:layout_marginTop="20dp"
+        android:text="@string/view_doctors"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/view_appointments_button"
-        android:layout_below="@+id/add_doctor_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:text="@string/view_med_items"
-        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/view_appointments"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/view_documents_button"
+        android:layout_marginTop="20dp"
+        android:text="@string/view_documents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
