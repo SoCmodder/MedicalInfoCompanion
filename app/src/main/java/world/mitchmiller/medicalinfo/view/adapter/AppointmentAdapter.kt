@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import world.mitchmiller.medicalinfo.R
 import world.mitchmiller.medicalinfo.db.model.Appointment
 
-class MedicalItemAdapter internal constructor(context: Context, itemClickListener: OnItemClickListener) : RecyclerView.Adapter<MedicalItemAdapter.MedItemViewHolder>() {
+class AppointmentAdapter internal constructor(context: Context, itemClickListener: OnItemClickListener) : RecyclerView.Adapter<AppointmentAdapter.MedItemViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var medicalItems = emptyList<Appointment>() // Cached copy of medical items
     private val listener: OnItemClickListener = itemClickListener
