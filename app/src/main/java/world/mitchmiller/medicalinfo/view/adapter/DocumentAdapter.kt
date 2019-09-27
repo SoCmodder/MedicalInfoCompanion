@@ -20,7 +20,7 @@ class DocumentAdapter internal constructor(context: Context, itemClickListener: 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DocumentViewHolder {
-        val itemView = inflater.inflate(R.layout.doc_list_item, parent, false)
+        val itemView = inflater.inflate(R.layout.document_list_item, parent, false)
         return DocumentViewHolder(itemView)
     }
 

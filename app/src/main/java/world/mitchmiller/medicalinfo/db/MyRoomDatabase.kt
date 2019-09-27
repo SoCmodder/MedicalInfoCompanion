@@ -15,7 +15,7 @@ import world.mitchmiller.medicalinfo.db.model.Appointment
 import world.mitchmiller.medicalinfo.db.model.Doctor
 import world.mitchmiller.medicalinfo.db.model.Document
 
-@Database(entities = [Appointment::class, Doctor::class, Document::class], version = 1)
+@Database(entities = [Appointment::class, Doctor::class, Document::class], version = 2)
 abstract class MyRoomDatabase : RoomDatabase() {
 
     abstract fun medItemDao(): AppointmentDao

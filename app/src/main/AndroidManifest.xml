@@ -24,6 +24,7 @@
         <activity android:name=".view.activity.NewDocumentActivity" />
         <activity android:name=".view.activity.ScanDocumentActivity" />
         <activity android:name=".view.activity.ViewAppointmentActivity" />
+        <activity android:name=".view.activity.DoctorListActivity" />
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@
     <string name="add_doctor">New Doctor</string>
     <string name="doctor_name">doctor name</string>
     <string name="doctor_address">doctor address</string>
+    <string name="doctor_address_sample">1234 Something Drive, Alexandria VA 22102</string>
     <string name="save_doctor">Save Doctor</string>
     <string name="save_document">Save Document</string>
     <string name="document_notes">notes</string>

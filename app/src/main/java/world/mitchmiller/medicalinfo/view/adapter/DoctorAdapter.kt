@@ -20,7 +20,7 @@ class DoctorAdapter internal constructor(context: Context, itemClickListener: On
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DoctorViewHolder {
-        val itemView = inflater.inflate(R.layout.medical_list_item, parent, false)
+        val itemView = inflater.inflate(R.layout.appointment_list_item, parent, false)
         return DoctorViewHolder(itemView)
     }
 
