@@ -19,4 +19,5 @@
     <string name="view_documents">View Documents</string>
     <string name="add_appointment">New Appointment</string>
     <string name="view_doctors">View Doctors</string>
+    <string name="doctor_phone_number">doctor phone number</string>
 </resources>

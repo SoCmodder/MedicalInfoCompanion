@@ -32,7 +32,11 @@ class DoctorViewModel(application: Application) : AndroidViewModel(application) 
         repository.deleteAll()
     }
 
-    fun updateMedicalItem(doctor: Doctor) = viewModelScope.launch(Dispatchers.IO){
+    fun updateDoctor(doctor: Doctor) = viewModelScope.launch(Dispatchers.IO){
         repository.updateDoctor(doctor)
+    }
+
+    fun getDoctorById(id: Int): LiveData<Doctor> {
+        return repository.getDoctorById(id)
     }
 }

@@ -27,4 +27,9 @@ class DoctorRepository(private val doctorDao: DoctorDao) {
     suspend fun updateDoctor(doc: Doctor) {
         doctorDao.update(doc)
     }
+
+    @WorkerThread
+    fun getDoctorById(id: Int): LiveData<Doctor> {
+        return doctorDao.getDoctorById(id)
+    }
 }

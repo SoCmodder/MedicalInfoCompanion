@@ -32,11 +32,6 @@ class NewDoctorActivity : AppCompatActivity(), View.OnClickListener {
         saveButton = findViewById(R.id.save_button)
 
         saveButton.setOnClickListener(this)
-
-        docViewModel.allDoctors.observe(this, Observer {
-            doctors ->
-
-        })
     }
 
     override fun onClick(v: View?) {

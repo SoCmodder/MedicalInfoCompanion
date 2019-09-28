@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
     @OnClick(R.id.view_doctors_button)
     fun onViewDoctorClick() {
-        val intent = Intent(this, ViewDoctorActivity::class.java)
+        val intent = Intent(this, DoctorListActivity::class.java)
         startActivity(intent)
     }
 

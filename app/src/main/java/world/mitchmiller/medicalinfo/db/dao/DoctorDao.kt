@@ -20,4 +20,7 @@ interface DoctorDao {
 
     @Update
     suspend fun update(doctor: Doctor)
+
+    @Query("SELECT * FROM doctor_table WHERE id = :id")
+    fun getDoctorById(id: Int): LiveData<Doctor>
 }
