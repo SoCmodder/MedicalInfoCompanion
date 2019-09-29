@@ -31,10 +31,12 @@ class NewAppointmentActivity : AppCompatActivity() {
     private lateinit var timeButton: Button
     private lateinit var doctorSpinner: Spinner
     private lateinit var saveButton: Button
-    private val doctorNames : ArrayList<String> = ArrayList()
+    private val doctorNames: ArrayList<String> = ArrayList()
 
     private lateinit var viewModel: AppointmentViewModel
     private lateinit var doctorViewModel: DoctorViewModel
+
+    private var apptCal: Calendar = Calendar.getInstance(Locale.getDefault())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,43 +59,62 @@ class NewAppointmentActivity : AppCompatActivity() {
             }
             setupDoctorSpinner()
         })
+        setupSaveButton()
+        setupDateAndTime()
+    }
+
+    private fun setupDoctorSpinner() {
+        val arrayAdapter: ArrayAdapter<String> =
+            ArrayAdapter(this, android.R.layout.simple_spinner_item, doctorNames)
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        doctorSpinner.adapter = arrayAdapter
+    }
+
+    private fun setupDateAndTime() {
+        val dateSetListener: DatePickerDialog.OnDateSetListener =
+            DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                apptCal.set(Calendar.YEAR, year)
+                apptCal.set(Calendar.MONTH, month)
+                apptCal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+                datePickerText.text = DateUtils.fromMillisToTimeString(apptCal.timeInMillis)
+            }
+        val timeSetListener: TimePickerDialog.OnTimeSetListener = TimePickerDialog.OnTimeSetListener {
+                view, hourOfDay, minute ->
+            apptCal.set(Calendar.HOUR_OF_DAY, hourOfDay)
+            apptCal.set(Calendar.MINUTE, minute)
+            timePickerText.text = DateUtils.getDBTimeString(apptCal.timeInMillis)
+        }
 
         timeButton.setOnClickListener {
-            // Show Time Picker
-            val cal: Calendar = Calendar.getInstance(Locale.getDefault())
-            val tpd = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
-                timePickerText.text = hourOfDay.toString() + " : " + minute.toString()
-            }, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), false)
-
+            val tpd = TimePickerDialog(this, timeSetListener, 12, 0, false)
             tpd.show()
         }
 
         dateButton.setOnClickListener {
-            // Show Date Picker
-            val cal: Calendar = Calendar.getInstance(Locale.getDefault())
-            val dpd = DatePickerDialog(this,
-               DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-                    val dateString: String = DateUtils.fromMillisToTimeString(cal.timeInMillis)
-                   datePickerText.text = dateString
-               },
-                cal.get(Calendar.YEAR),
-                cal.get(Calendar.MONTH),
-                cal.get(Calendar.DAY_OF_MONTH)
-            )
-
+            val dpd = DatePickerDialog(this, dateSetListener, apptCal.get(Calendar.YEAR), apptCal.get(Calendar.MONTH), apptCal.get(Calendar.DAY_OF_MONTH))
             dpd.show()
-        }
-
-        saveButton.setOnClickListener {
-            doctorViewModel.getDoctorByName(doctorSpinner.selectedItem.toString()).observe(this, Observer {
-                viewModel.insert(Appointment(0, nameEt.text.toString(), datePickerText.text.toString(), timePickerText.text.toString(), it.id))
-            })
         }
     }
 
-    private fun setupDoctorSpinner() {
-        val arrayAdapter: ArrayAdapter<String> = ArrayAdapter(this, android.R.layout.simple_spinner_item, doctorNames)
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        doctorSpinner.adapter = arrayAdapter
+    private fun setupSaveButton() {
+        saveButton.setOnClickListener {
+            doctorViewModel.getDoctorByName(doctorSpinner.selectedItem.toString())
+                .observe(this, Observer {
+                    val date = DateUtils.getDBDateString(apptCal.timeInMillis)
+                    val time = DateUtils.getDBTimeString(apptCal.timeInMillis)
+                    viewModel.insert(
+                        Appointment(
+                            0,
+                            nameEt.text.toString(),
+                            date,
+                            time,
+                            it.id
+                        )
+                    ).invokeOnCompletion {
+                        finish()
+                    }
+                })
+        }
     }
 }
