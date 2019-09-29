@@ -32,4 +32,9 @@ class DoctorRepository(private val doctorDao: DoctorDao) {
     fun getDoctorById(id: Int): LiveData<Doctor> {
         return doctorDao.getDoctorById(id)
     }
+
+    @WorkerThread
+    fun getDoctorByName(name: String): LiveData<Doctor> {
+        return doctorDao.getDoctorByName(name)
+    }
 }

@@ -12,7 +12,7 @@ interface DoctorDao {
     @Insert
     suspend fun insert(doctor: Doctor)
 
-    @Query("DELETE FROM appointment_table")
+    @Query("DELETE FROM doctor_table")
     fun deleteAll()
 
     @Delete
@@ -23,4 +23,7 @@ interface DoctorDao {
 
     @Query("SELECT * FROM doctor_table WHERE id = :id")
     fun getDoctorById(id: Int): LiveData<Doctor>
+
+    @Query("SELECT * FROM doctor_table WHERE name = :name")
+    fun getDoctorByName(name: String): LiveData<Doctor>
 }

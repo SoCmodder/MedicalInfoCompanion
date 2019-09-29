@@ -6,7 +6,7 @@
     android:layout_height="75dp">
 
     <TextView
-        android:id="@+id/doctor_name"
+        android:id="@+id/appointment_name"
         android:text="@string/doctor_name"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -18,7 +18,7 @@
         android:id="@+id/appt_address"
         android:layout_alignParentBottom="true"
         android:gravity="bottom"
-        android:layout_below="@+id/doctor_name"
+        android:layout_below="@+id/appointment_name"
         android:text="@string/doctor_address_sample"
         android:textSize="12sp"
         android:textColor="@color/black"
@@ -27,6 +27,7 @@
 
     <ImageView
         android:id="@+id/map_pin"
+        android:contentDescription="@string/navigation_pin"
         android:src="@drawable/ic_map_pin_underline"
         android:layout_marginEnd="8dp"
         android:layout_centerVertical="true"

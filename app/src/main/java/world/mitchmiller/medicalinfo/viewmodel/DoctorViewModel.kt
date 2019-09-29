@@ -39,4 +39,8 @@ class DoctorViewModel(application: Application) : AndroidViewModel(application) 
     fun getDoctorById(id: Int): LiveData<Doctor> {
         return repository.getDoctorById(id)
     }
+
+    fun getDoctorByName(name: String): LiveData<Doctor> {
+        return repository.getDoctorByName(name)
+    }
 }
