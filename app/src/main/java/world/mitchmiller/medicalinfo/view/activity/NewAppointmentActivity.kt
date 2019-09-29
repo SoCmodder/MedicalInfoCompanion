@@ -95,6 +95,9 @@ class NewAppointmentActivity : AppCompatActivity() {
             val dpd = DatePickerDialog(this, dateSetListener, apptCal.get(Calendar.YEAR), apptCal.get(Calendar.MONTH), apptCal.get(Calendar.DAY_OF_MONTH))
             dpd.show()
         }
+
+        datePickerText.text = DateUtils.fromMillisToTimeString(apptCal.timeInMillis)
+        timePickerText.text = DateUtils.getDBTimeString(apptCal.timeInMillis)
     }
 
     private fun setupSaveButton() {
