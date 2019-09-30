@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import world.mitchmiller.medicalinfo.R
 import world.mitchmiller.medicalinfo.db.model.Doctor
@@ -34,6 +35,10 @@ class DoctorAdapter internal constructor(context: Context, itemClickListener: On
         val current = doctors[position]
         holder.doctorName.text = current.name.capitalize()
         holder.doctorAddress.text = current.name
+
+        holder.container.setOnClickListener {
+            listener.onItemClick(current)
+        }
     }
 
     internal fun setDoctors(doctors: List<Doctor>) {
@@ -51,12 +56,9 @@ class DoctorAdapter internal constructor(context: Context, itemClickListener: On
         setDoctors(result)
     }
 
-    inner class DoctorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), OnItemClickListener {
+    inner class DoctorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        val container: CardView = itemView.findViewById(R.id.doctor_item_view)
         val doctorName: TextView = itemView.findViewById(R.id.doctor_name)
         val doctorAddress: TextView = itemView.findViewById(R.id.doctor_address)
-
-        override fun onItemClick(doctor: Doctor) {
-            listener.onItemClick(doctor)
-        }
     }
 }
