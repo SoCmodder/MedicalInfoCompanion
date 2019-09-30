@@ -53,8 +53,7 @@ class DoctorListActivity : AppCompatActivity(), DoctorAdapter.OnItemClickListene
 
     override fun onItemClick(doctor: Doctor) {
         val viewDoctorIntent = Intent(this, ViewDoctorActivity::class.java)
-        val args = Bundle()
-        args.putInt(DOCTOR_ID_ARG, doctor.id)
-        startActivity(viewDoctorIntent, args)
+        viewDoctorIntent.putExtra(DOCTOR_ID_ARG, doctor.id)
+        startActivity(viewDoctorIntent)
     }
 }
