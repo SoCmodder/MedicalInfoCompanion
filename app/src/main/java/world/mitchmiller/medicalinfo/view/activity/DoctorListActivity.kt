@@ -2,24 +2,26 @@ package world.mitchmiller.medicalinfo.view.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.activity_doctor_list.*
 import world.mitchmiller.medicalinfo.R
 import world.mitchmiller.medicalinfo.db.model.Doctor
 import world.mitchmiller.medicalinfo.view.adapter.DoctorAdapter
 import world.mitchmiller.medicalinfo.viewmodel.DoctorViewModel
 
 class DoctorListActivity : AppCompatActivity(), DoctorAdapter.OnItemClickListener {
-    private lateinit var recyclerview: RecyclerView
     private lateinit var doctorViewModel: DoctorViewModel
     private lateinit var doctorAdapter: DoctorAdapter
-    private lateinit var fab: FloatingActionButton
-    private lateinit var coordinatorLayout: CoordinatorLayout
 
     companion object {
         const val DOCTOR_ID_ARG = "doctor_id"
@@ -29,9 +31,8 @@ class DoctorListActivity : AppCompatActivity(), DoctorAdapter.OnItemClickListene
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doctor_list)
 
-        recyclerview = findViewById(R.id.recyclerview)
-        fab = findViewById(R.id.fab)
-        coordinatorLayout = findViewById(R.id.coordinator_layout)
+        setupToolbar()
+
         recyclerview.layoutManager = LinearLayoutManager(this)
         doctorAdapter = DoctorAdapter(this, this)
         recyclerview.adapter = doctorAdapter
@@ -47,13 +48,35 @@ class DoctorListActivity : AppCompatActivity(), DoctorAdapter.OnItemClickListene
         }
     }
 
-    private fun setupCoordinatorLayout() {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_doctor_list, menu)
+        return true
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item?.itemId) {
+            android.R.id.home -> finish()
+            R.id.new_appointment -> newAppointment()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onItemClick(doctor: Doctor) {
         val viewDoctorIntent = Intent(this, ViewDoctorActivity::class.java)
         viewDoctorIntent.putExtra(DOCTOR_ID_ARG, doctor.id)
         startActivity(viewDoctorIntent)
+    }
+
+    private fun setupToolbar() {
+        setSupportActionBar(toolbar)
+        val actionBar = supportActionBar
+        actionBar!!.title = "Doctor List"
+        actionBar.elevation = 4.0F
+
+        actionBar.setDisplayHomeAsUpEnabled(true)
+    }
+
+    private fun newAppointment() {
+
     }
 }
