@@ -34,7 +34,7 @@ class DoctorAdapter internal constructor(context: Context, itemClickListener: On
     override fun onBindViewHolder(holder: DoctorViewHolder, position: Int) {
         val current = doctors[position]
         holder.doctorName.text = current.name.capitalize()
-        holder.doctorAddress.text = current.name
+        holder.doctorAddress.text = current.address
 
         holder.container.setOnClickListener {
             listener.onItemClick(current)

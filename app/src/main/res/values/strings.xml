@@ -24,4 +24,5 @@
     <string name="navigation_pin">navigation pin</string>
     <string name="scan_document">Scan Document</string>
     <string name="new_appointment">New Appointment</string>
+    <string name="scan_and_crop_documents">Scan, Crop and Save Document</string>
 </resources>

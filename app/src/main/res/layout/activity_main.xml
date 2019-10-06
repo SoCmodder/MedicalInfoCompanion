@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".view.demo.MainActivity">
 
     <Button
         android:id="@+id/add_doctor_button"
@@ -53,6 +53,13 @@
         android:id="@+id/view_documents_button"
         android:layout_marginTop="20dp"
         android:text="@string/view_documents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/scan_document_button"
+        android:layout_marginTop="20dp"
+        android:text="@string/scan_and_crop_documents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
